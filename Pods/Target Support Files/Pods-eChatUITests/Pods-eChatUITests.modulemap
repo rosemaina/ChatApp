@@ -1,0 +1,6 @@
+framework module Pods_eChatUITests {
+  umbrella header "Pods-eChatUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
