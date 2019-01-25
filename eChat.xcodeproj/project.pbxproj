@@ -34,6 +34,8 @@
 		307F729521F9E12800A3DA14 /* CountryCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307F728D21F9E12800A3DA14 /* CountryCode.swift */; };
 		307F729621F9E12800A3DA14 /* FCollectionReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307F728E21F9E12800A3DA14 /* FCollectionReference.swift */; };
 		307F729721F9E12800A3DA14 /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307F728F21F9E12800A3DA14 /* HelperFunctions.swift */; };
+		308DBE7421FB98F2003C72E2 /* Users.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 308DBE7321FB98F2003C72E2 /* Users.storyboard */; };
+		308DBE7621FBA021003C72E2 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308DBE7521FBA021003C72E2 /* UserTableViewCell.swift */; };
 		30CBCEE321FB2A4A00E33744 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CBCEE221FB2A4A00E33744 /* SettingsTableViewController.swift */; };
 		5E444C0EDD9F96DCFC702328 /* Pods_eChatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5D98871F5578D3FEB85BE33 /* Pods_eChatTests.framework */; };
 		C9893E0FB7F9D40B67195C84 /* Pods_eChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97621286ED42AF82A92EFE5B /* Pods_eChat.framework */; };
@@ -92,6 +94,8 @@
 		307F728D21F9E12800A3DA14 /* CountryCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryCode.swift; sourceTree = "<group>"; };
 		307F728E21F9E12800A3DA14 /* FCollectionReference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FCollectionReference.swift; sourceTree = "<group>"; };
 		307F728F21F9E12800A3DA14 /* HelperFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
+		308DBE7321FB98F2003C72E2 /* Users.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Users.storyboard; sourceTree = "<group>"; };
+		308DBE7521FBA021003C72E2 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		30CBCEE221FB2A4A00E33744 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		97621286ED42AF82A92EFE5B /* Pods_eChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_eChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1DAD9275E1B4AC8F286CED9 /* Pods-eChatUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eChatUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-eChatUITests/Pods-eChatUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -235,6 +239,7 @@
 		307F725421F9CCB800A3DA14 /* Chats */ = {
 			isa = PBXGroup;
 			children = (
+				308DBE7221FB98D7003C72E2 /* Users */,
 				307F727421F9CDD100A3DA14 /* Chats.storyboard */,
 				30CBCEE221FB2A4A00E33744 /* SettingsTableViewController.swift */,
 			);
@@ -290,6 +295,15 @@
 				307F722B21F9969700A3DA14 /* LaunchScreen.storyboard */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		308DBE7221FB98D7003C72E2 /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				308DBE7321FB98F2003C72E2 /* Users.storyboard */,
+				308DBE7521FBA021003C72E2 /* UserTableViewCell.swift */,
+			);
+			path = Users;
 			sourceTree = "<group>";
 		};
 		BC14BA9B002AE500D8D8E775 /* Pods */ = {
@@ -417,6 +431,7 @@
 				307F728121F9CEA900A3DA14 /* SignIn.storyboard in Resources */,
 				307F722D21F9969700A3DA14 /* LaunchScreen.storyboard in Resources */,
 				307F727821F9CE8D00A3DA14 /* SignUp.storyboard in Resources */,
+				308DBE7421FB98F2003C72E2 /* Users.storyboard in Resources */,
 				307F727521F9CDD100A3DA14 /* Chats.storyboard in Resources */,
 				307F722A21F9969700A3DA14 /* Assets.xcassets in Resources */,
 				307F727D21F9CE9900A3DA14 /* Profile.storyboard in Resources */,
@@ -605,6 +620,7 @@
 				307F729321F9E12800A3DA14 /* AudioViewController.swift in Sources */,
 				307F726B21F9CD4100A3DA14 /* UIImage+Extensions.swift in Sources */,
 				307F727321F9CD7500A3DA14 /* WelcomeViewController.swift in Sources */,
+				308DBE7621FBA021003C72E2 /* UserTableViewCell.swift in Sources */,
 				307F729721F9E12800A3DA14 /* HelperFunctions.swift in Sources */,
 				307F729121F9E12800A3DA14 /* Camera.swift in Sources */,
 				307F726C21F9CD4100A3DA14 /* UIViewController+Extension.swift in Sources */,
