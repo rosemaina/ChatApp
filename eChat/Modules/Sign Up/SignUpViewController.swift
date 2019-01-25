@@ -70,19 +70,20 @@ extension SignUpViewController {
     }
 }
 
-// MARK:- KeyBoard Methods
+// MARK:- KeyBoard Functions
+
 extension SignUpViewController {
-    
+
     @objc
     func dismissKeyboard() {
         self.view.endEditing(true)
     }
-    
+
     @objc
     func textFieldDidChange(_ textfield: UITextField) {
         
     }
-    
+
     @objc
     func keyboardWillShow(notification: NSNotification) {
         guard let userInfo = notification.userInfo else {
@@ -93,7 +94,7 @@ extension SignUpViewController {
         let animationDuration: Double = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double ?? 0.3
         let animationCurve: UInt = userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as? UInt ?? UInt(UIView.AnimationCurve.easeInOut.rawValue)
         let options: UIView.AnimationOptions = UIView.AnimationOptions(rawValue: UInt(animationCurve << 16))
-        
+
         UIView.animate(withDuration: animationDuration,
                        delay: 0.0,
                        options: options,
@@ -103,17 +104,17 @@ extension SignUpViewController {
         },
                        completion: nil)
     }
-    
+
     @objc
     func keyboardWillHide(notification: NSNotification) {
         guard let userInfo = notification.userInfo else {
             return
         }
-        
+
         let animationDuration: Double = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double ?? 0.3
         let animationCurve: UInt = userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as? UInt ?? UInt(UIView.AnimationCurve.easeInOut.rawValue)
         let options: UIView.AnimationOptions = UIView.AnimationOptions(rawValue: UInt(animationCurve << 16))
-        
+
         UIView.animate(withDuration: animationDuration,
                        delay: 0.0,
                        options: options,

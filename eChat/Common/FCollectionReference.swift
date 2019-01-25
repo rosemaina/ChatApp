@@ -6,8 +6,8 @@
 //  Copyright © 2019 Rose Maina. All rights reserved.
 //
 
-import Foundation
 import FirebaseFirestore
+import Foundation
 
 enum FCollectionReference: String {
     case User

@@ -11,7 +11,6 @@ import UIKit
 
 class SignInViewController: UIViewController {
 
-    //MARK:- Private Instance Properties
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
@@ -38,14 +37,13 @@ class SignInViewController: UIViewController {
     }
 }
 
-// MARK:- Instance Methods
 extension SignInViewController {
-    
+
     @IBAction func clickToSignUp(_ sender: UIButton) {
       let signUpVc = SignUpViewController.instantiate(fromAppStoryboard: .SignUp)
         self.present(signUpVc, animated: true, completion: nil)
     }
-    
+
     @IBAction func clickToSignIn(_ sender: Any) {
         
         if emailTextField.text != "" && passwordTextField.text != "" {
@@ -54,10 +52,10 @@ extension SignInViewController {
             ProgressHUD.showError("All fields are required!")
         }
     }
-    
+
     func loginUser() {
         ProgressHUD.show("Login...")
-        
+
         FUser.loginUserWith(email: emailTextField.text!, password: passwordTextField.text!) { (error) in
             
             if error != nil {
@@ -67,7 +65,7 @@ extension SignInViewController {
             self.goToApp()
         }
     }
-    
+
     func goToApp() {
         ProgressHUD.dismiss()
         
@@ -85,18 +83,17 @@ extension SignInViewController {
     func dismissKeyboard() {
         self.view.endEditing(true)
     }
-    
+
     @objc
     func textFieldDidChange(_ textfield: UITextField) {
-        
     }
-    
+
     @objc
     func keyboardWillShow(notification: NSNotification) {
         guard let userInfo = notification.userInfo else {
             return
         }
-        
+
         let keyboardHeight = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect ?? CGRect.zero).height
         let animationDuration: Double = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double ?? 0.3
         let animationCurve: UInt = userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as? UInt ?? UInt(UIView.AnimationCurve.easeInOut.rawValue)
@@ -111,13 +108,13 @@ extension SignInViewController {
         },
                        completion: nil)
     }
-    
+
     @objc
     func keyboardWillHide(notification: NSNotification) {
         guard let userInfo = notification.userInfo else {
             return
         }
-        
+
         let animationDuration: Double = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double ?? 0.3
         let animationCurve: UInt = userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as? UInt ?? UInt(UIView.AnimationCurve.easeInOut.rawValue)
         let options: UIView.AnimationOptions = UIView.AnimationOptions(rawValue: UInt(animationCurve << 16))

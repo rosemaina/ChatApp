@@ -62,35 +62,31 @@ extension ProfileViewController {
                                            kCITY : cityTextField.text!,
                                            kPHONE : phoneTextField.text!] as [String : Any]
         
-        
         if avatarImage == nil {
-            
             imageFromInitials(firstName: nameTextField.text!, lastName: surnameTextField.text!) { (avatarInitials) in
                 
                 let avatarIMG = avatarInitials.jpegData(compressionQuality: 0.7)
                 let avatar = avatarIMG!.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
-                
+
                 tempDictionary[kAVATAR] = avatar
-                
+
                 self.finishRegistration(withValues: tempDictionary)
             }
         } else {
-            
+
             let avatarData = avatarImage?.jpegData(compressionQuality: 0.5)
             let avatar = avatarData!.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
-            
+
             tempDictionary[kAVATAR] = avatar
-            
+
             self.finishRegistration(withValues: tempDictionary)
         }
     }
-    
+
     func finishRegistration(withValues: [String : Any]) {
-        
         updateCurrentUserInFirestore(withValues: withValues) { (error) in
-            
+
             if error != nil {
-                
                 DispatchQueue.main.async {
                     ProgressHUD.showError(error!.localizedDescription)
                     print(error!.localizedDescription)

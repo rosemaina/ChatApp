@@ -19,4 +19,3 @@ class WelcomeViewController: UIViewController {
         self.present(signInVc, animated: true, completion: nil)
     }
 }
-

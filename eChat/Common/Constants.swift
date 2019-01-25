@@ -13,18 +13,18 @@ import FirebaseDatabase
 public var recentBadgeHandler: ListenerRegistration?
 let userDefaults = UserDefaults.standard
 
-//NOTIFICATIONS
+//MARK:- NOTIFICATIONS
 public let USER_DID_LOGIN_NOTIFICATION = "UserDidLoginNotification"
 public let APP_STARTED_NOTIFICATION = "AppStartedNotification"
 
-//IDS and Keys
+//MARK:- IDs and KEYS
 public let kFILEREFERENCE = ""
 public let kONESIGNALAPPID = ""
 public let kSINCHKEY = ""
 public let kSINCHSECRET = ""
 public let kAPPURL = ""
 
-//Firebase Headers
+//MARK:- FIREBASE HEADERS
 public let kUSER_PATH = "User"
 public let kTYPINGPATH_PATH = "Typing"
 public let kRECENT_PATH = "Recent"
@@ -32,7 +32,7 @@ public let kMESSAGE_PATH = "Message"
 public let kGROUP_PATH = "Group"
 public let kCALL_PATH = "Call"
 
-//FUser
+//MARK:- FUSER
 public let kOBJECTID = "objectId"
 public let kCREATEDAT = "createdAt"
 public let kUPDATEDAT = "updatedAt"
@@ -53,7 +53,7 @@ public let kCITY = "city"
 public let kCOUNTRY = "country"
 public let kBLOCKEDUSERID = "blockedUserId"
 
-//
+// MARK: PROFILE
 public let kBACKGROUBNDIMAGE = "backgroundImage"
 public let kSHOWAVATAR = "showAvatar"
 public let kPASSWORDPROTECT = "passwordProtect"
@@ -63,7 +63,7 @@ public let kMAXDURATION = 120.0
 public let kAUDIOMAXDURATION = 120.0
 public let kSUCCESS = 2
 
-//recent
+//MARK:- RECENTS
 public let kCHATROOMID = "chatRoomID"
 public let kUSERID = "userId"
 public let kDATE = "date"
@@ -89,31 +89,31 @@ public let kSENDERNAME = "senderName"
 public let kTHUMBNAIL = "thumbnail"
 public let kISDELETED = "isDeleted"
 
-//Contacts
+//MARK:- CONTACTS
 public let kCONTACT = "contact"
 public let kCONTACTID = "contactId"
 
-//message types
+//MARK:- MESSAGE TYPES
 public let kPICTURE = "picture"
 public let kTEXT = "text"
 public let kVIDEO = "video"
 public let kAUDIO = "audio"
 public let kLOCATION = "location"
 
-//coordinates
+//MARK:- COORDINATES
 public let kLATITUDE = "latitude"
 public let kLONGITUDE = "longitude"
 
-//message status
+//MARK:- MESSAGE STATUS
 public let kDELIVERED = "delivered"
 public let kREAD = "read"
 public let kREADDATE = "readDate"
 public let kDELETED = "deleted"
 
-//push
+//MARK:- PUSH
 public let kDEVICEID = "deviceId"
 
-//Call
+//MARK:- CALLS
 public let kISINCOMING = "isIncoming"
 public let kCALLERID = "callerId"
 public let kCALLERFULLNAME = "callerFullName"
