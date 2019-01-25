@@ -19,10 +19,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app-icon" translatesAutoresizingMaskIntoConstraints="NO" id="fLr-GQ-BW6">
-                                <rect key="frame" x="122.5" y="268.5" width="130" height="130"/>
+                                <rect key="frame" x="107.5" y="253.5" width="160" height="160"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="130" id="dO5-1B-xe4"/>
-                                    <constraint firstAttribute="width" constant="130" id="i56-86-3Ne"/>
+                                    <constraint firstAttribute="height" constant="160" id="dO5-1B-xe4"/>
+                                    <constraint firstAttribute="width" constant="160" id="i56-86-3Ne"/>
                                 </constraints>
                             </imageView>
                         </subviews>
