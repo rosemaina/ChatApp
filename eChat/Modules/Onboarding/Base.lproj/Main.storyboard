@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="f7e-ud-1cL">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Welcome View Controller-->
+        <scene sceneID="zi2-2g-Rmm">
+            <objects>
+                <viewController storyboardIdentifier="WelcomeViewController" id="f7e-ud-1cL" customClass="WelcomeViewController" customModule="eChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vjQ-iz-GKw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to eChat" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xPC-Yw-pNH">
+                                <rect key="frame" x="16" y="280" width="343" height="29"/>
+                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="22"/>
+                                <color key="textColor" red="0.1215686275" green="0.49019607840000001" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="afm-tp-cKr">
+                                <rect key="frame" x="36" y="581" width="303" height="50"/>
+                                <color key="backgroundColor" red="0.1215686275" green="0.49019607840000001" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="zR7-ul-kLK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="18"/>
+                                <state key="normal" title="Continue">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="continueButtonPressed:" destination="f7e-ud-1cL" eventType="touchUpInside" id="vDd-Lv-L9l"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app-icon" translatesAutoresizingMaskIntoConstraints="NO" id="MXi-dB-aSe">
+                                <rect key="frame" x="122.5" y="142" width="130" height="130"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="130" id="0Tl-ay-jEK"/>
+                                    <constraint firstAttribute="height" constant="130" id="RLx-r4-W1L"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="2Yv-HH-PI6" firstAttribute="bottom" secondItem="afm-tp-cKr" secondAttribute="bottom" constant="36" id="3gM-1U-G9m"/>
+                            <constraint firstItem="xPC-Yw-pNH" firstAttribute="top" secondItem="MXi-dB-aSe" secondAttribute="bottom" constant="8" id="404-bM-1XV"/>
+                            <constraint firstItem="xPC-Yw-pNH" firstAttribute="leading" secondItem="2Yv-HH-PI6" secondAttribute="leading" constant="16" id="5oo-FO-Eg9"/>
+                            <constraint firstItem="MXi-dB-aSe" firstAttribute="centerX" secondItem="xPC-Yw-pNH" secondAttribute="centerX" id="847-pX-77t"/>
+                            <constraint firstItem="2Yv-HH-PI6" firstAttribute="trailing" secondItem="xPC-Yw-pNH" secondAttribute="trailing" constant="16" id="WwP-JO-AyF"/>
+                            <constraint firstItem="afm-tp-cKr" firstAttribute="leading" secondItem="2Yv-HH-PI6" secondAttribute="leading" constant="36" id="laX-fe-gwL"/>
+                            <constraint firstItem="2Yv-HH-PI6" firstAttribute="trailing" secondItem="afm-tp-cKr" secondAttribute="trailing" constant="36" id="mil-ia-CE0"/>
+                            <constraint firstItem="MXi-dB-aSe" firstAttribute="top" secondItem="2Yv-HH-PI6" secondAttribute="top" constant="122" id="yR0-W5-nqn"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="2Yv-HH-PI6"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tcd-Oc-Cm2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="152.80000000000001" y="187.55622188905548"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="app-icon" width="512" height="512"/>
+    </resources>
+</document>
