@@ -16,7 +16,6 @@
 		307F724321F9969700A3DA14 /* eChatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307F724221F9969700A3DA14 /* eChatUITests.swift */; };
 		307F726B21F9CD4100A3DA14 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307F726821F9CD4000A3DA14 /* UIImage+Extensions.swift */; };
 		307F726C21F9CD4100A3DA14 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307F726921F9CD4000A3DA14 /* UIViewController+Extension.swift */; };
-		307F726D21F9CD4100A3DA14 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307F726A21F9CD4100A3DA14 /* UIView+Extension.swift */; };
 		307F727321F9CD7500A3DA14 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307F727121F9CD7500A3DA14 /* WelcomeViewController.swift */; };
 		307F727521F9CDD100A3DA14 /* Chats.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 307F727421F9CDD100A3DA14 /* Chats.storyboard */; };
 		307F727821F9CE8D00A3DA14 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 307F727621F9CE8D00A3DA14 /* SignUp.storyboard */; };
@@ -36,6 +35,10 @@
 		307F729721F9E12800A3DA14 /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307F728F21F9E12800A3DA14 /* HelperFunctions.swift */; };
 		308DBE7421FB98F2003C72E2 /* Users.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 308DBE7321FB98F2003C72E2 /* Users.storyboard */; };
 		308DBE7621FBA021003C72E2 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308DBE7521FBA021003C72E2 /* UserTableViewCell.swift */; };
+		308DBE7821FBAB3F003C72E2 /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308DBE7721FBAB3F003C72E2 /* UsersTableViewController.swift */; };
+		308DBE7A21FBB6A5003C72E2 /* ChatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308DBE7921FBB6A5003C72E2 /* ChatsViewController.swift */; };
+		308DBE7C21FF6938003C72E2 /* ProfileViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308DBE7B21FF6938003C72E2 /* ProfileViewTableViewController.swift */; };
+		308DBE8021FF71F0003C72E2 /* ProfileView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 308DBE7F21FF71F0003C72E2 /* ProfileView.storyboard */; };
 		30CBCEE321FB2A4A00E33744 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CBCEE221FB2A4A00E33744 /* SettingsTableViewController.swift */; };
 		5E444C0EDD9F96DCFC702328 /* Pods_eChatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5D98871F5578D3FEB85BE33 /* Pods_eChatTests.framework */; };
 		C9893E0FB7F9D40B67195C84 /* Pods_eChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97621286ED42AF82A92EFE5B /* Pods_eChat.framework */; };
@@ -76,7 +79,6 @@
 		307F724421F9969700A3DA14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		307F726821F9CD4000A3DA14 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		307F726921F9CD4000A3DA14 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
-		307F726A21F9CD4100A3DA14 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		307F727121F9CD7500A3DA14 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		307F727421F9CDD100A3DA14 /* Chats.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chats.storyboard; sourceTree = "<group>"; };
 		307F727621F9CE8D00A3DA14 /* SignUp.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
@@ -96,6 +98,10 @@
 		307F728F21F9E12800A3DA14 /* HelperFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
 		308DBE7321FB98F2003C72E2 /* Users.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Users.storyboard; sourceTree = "<group>"; };
 		308DBE7521FBA021003C72E2 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
+		308DBE7721FBAB3F003C72E2 /* UsersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
+		308DBE7921FBB6A5003C72E2 /* ChatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsViewController.swift; sourceTree = "<group>"; };
+		308DBE7B21FF6938003C72E2 /* ProfileViewTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewTableViewController.swift; sourceTree = "<group>"; };
+		308DBE7F21FF71F0003C72E2 /* ProfileView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileView.storyboard; sourceTree = "<group>"; };
 		30CBCEE221FB2A4A00E33744 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		97621286ED42AF82A92EFE5B /* Pods_eChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_eChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1DAD9275E1B4AC8F286CED9 /* Pods-eChatUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eChatUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-eChatUITests/Pods-eChatUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -200,7 +206,9 @@
 		307F725021F9CC8D00A3DA14 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				307F725321F9CCAE00A3DA14 /* Profile */,
 				307F726F21F9CD6700A3DA14 /* Onboarding */,
+				308DBE7221FB98D7003C72E2 /* Users */,
 				307F725421F9CCB800A3DA14 /* Chats */,
 				307F725221F9CCA000A3DA14 /* Sign Up */,
 				307F725121F9CC9800A3DA14 /* Sign In */,
@@ -220,7 +228,6 @@
 		307F725221F9CCA000A3DA14 /* Sign Up */ = {
 			isa = PBXGroup;
 			children = (
-				307F725321F9CCAE00A3DA14 /* Profile */,
 				307F727621F9CE8D00A3DA14 /* SignUp.storyboard */,
 				307F727721F9CE8D00A3DA14 /* SignUpViewController.swift */,
 			);
@@ -230,6 +237,7 @@
 		307F725321F9CCAE00A3DA14 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				308DBE8121FF756E003C72E2 /* ProfileView */,
 				307F727B21F9CE9900A3DA14 /* Profile.storyboard */,
 				307F727A21F9CE9900A3DA14 /* ProfileViewController.swift */,
 			);
@@ -239,8 +247,8 @@
 		307F725421F9CCB800A3DA14 /* Chats */ = {
 			isa = PBXGroup;
 			children = (
-				308DBE7221FB98D7003C72E2 /* Users */,
 				307F727421F9CDD100A3DA14 /* Chats.storyboard */,
+				308DBE7921FBB6A5003C72E2 /* ChatsViewController.swift */,
 				30CBCEE221FB2A4A00E33744 /* SettingsTableViewController.swift */,
 			);
 			path = Chats;
@@ -266,7 +274,6 @@
 			isa = PBXGroup;
 			children = (
 				307F726821F9CD4000A3DA14 /* UIImage+Extensions.swift */,
-				307F726A21F9CD4100A3DA14 /* UIView+Extension.swift */,
 				307F726921F9CD4000A3DA14 /* UIViewController+Extension.swift */,
 			);
 			path = Extensions;
@@ -302,8 +309,18 @@
 			children = (
 				308DBE7321FB98F2003C72E2 /* Users.storyboard */,
 				308DBE7521FBA021003C72E2 /* UserTableViewCell.swift */,
+				308DBE7721FBAB3F003C72E2 /* UsersTableViewController.swift */,
 			);
 			path = Users;
+			sourceTree = "<group>";
+		};
+		308DBE8121FF756E003C72E2 /* ProfileView */ = {
+			isa = PBXGroup;
+			children = (
+				308DBE7F21FF71F0003C72E2 /* ProfileView.storyboard */,
+				308DBE7B21FF6938003C72E2 /* ProfileViewTableViewController.swift */,
+			);
+			path = ProfileView;
 			sourceTree = "<group>";
 		};
 		BC14BA9B002AE500D8D8E775 /* Pods */ = {
@@ -437,6 +454,7 @@
 				307F727D21F9CE9900A3DA14 /* Profile.storyboard in Resources */,
 				307F722821F9969600A3DA14 /* Main.storyboard in Resources */,
 				307F728721F9D51100A3DA14 /* GoogleService-Info.plist in Resources */,
+				308DBE8021FF71F0003C72E2 /* ProfileView.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -610,15 +628,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				307F726D21F9CD4100A3DA14 /* UIView+Extension.swift in Sources */,
 				307F729521F9E12800A3DA14 /* CountryCode.swift in Sources */,
+				308DBE7A21FBB6A5003C72E2 /* ChatsViewController.swift in Sources */,
 				307F727C21F9CE9900A3DA14 /* ProfileViewController.swift in Sources */,
 				307F722321F9969600A3DA14 /* AppDelegate.swift in Sources */,
+				308DBE7821FBAB3F003C72E2 /* UsersTableViewController.swift in Sources */,
 				307F729221F9E12800A3DA14 /* Download.swift in Sources */,
 				307F728021F9CEA900A3DA14 /* SignInViewController.swift in Sources */,
 				30CBCEE321FB2A4A00E33744 /* SettingsTableViewController.swift in Sources */,
 				307F729321F9E12800A3DA14 /* AudioViewController.swift in Sources */,
 				307F726B21F9CD4100A3DA14 /* UIImage+Extensions.swift in Sources */,
+				308DBE7C21FF6938003C72E2 /* ProfileViewTableViewController.swift in Sources */,
 				307F727321F9CD7500A3DA14 /* WelcomeViewController.swift in Sources */,
 				308DBE7621FBA021003C72E2 /* UserTableViewCell.swift in Sources */,
 				307F729721F9E12800A3DA14 /* HelperFunctions.swift in Sources */,

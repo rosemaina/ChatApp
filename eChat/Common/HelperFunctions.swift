@@ -22,21 +22,6 @@ func dateFormatter() -> DateFormatter {
     return dateFormatter
 }
 
-func imageFromData(pictureData: String, withBlock: (_ image: UIImage?) -> Void) {
-    var image: UIImage?
-
-    let decodedData = NSData(base64Encoded: pictureData, options: NSData.Base64DecodingOptions(rawValue: 0))
-
-    image = UIImage(data: decodedData! as Data)
-    withBlock(image)
-}
-
-//MARK:- For Avatars
-func dataImageFromString(pictureString: String, withBlock: (_ image: Data?) -> Void) {
-    let imageData = NSData(base64Encoded: pictureString, options: NSData.Base64DecodingOptions(rawValue: 0))
-    withBlock(imageData as Data?)
-}
-
 //MARK:- For Calls and Chats
 
 func dictionaryFromSnapshots(snapshots: [DocumentSnapshot]) -> [NSDictionary] {
