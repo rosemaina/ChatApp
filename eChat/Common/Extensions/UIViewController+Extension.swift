@@ -13,8 +13,10 @@ public enum AppStoryboard: String {
     case Main
     case Chats
     case Profile
+    case ProfileView
     case SignIn
     case SignUp
+    case Users
 
     var instance: UIStoryboard {
         return UIStoryboard(name: self.rawValue, bundle: Bundle.main)

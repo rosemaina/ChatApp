@@ -13,7 +13,7 @@
         <!--Sign In View Controller-->
         <scene sceneID="RlR-aN-E8C">
             <objects>
-                <viewController storyboardIdentifier="SignInViewController" id="Z7J-zC-ERr" customClass="SignInViewController" customModule="MyChatApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignInViewController" id="Z7J-zC-ERr" customClass="SignInViewController" customModule="eChat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dcA-tg-z9P">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -92,6 +92,7 @@
                     <connections>
                         <outlet property="emailTextField" destination="oPS-sT-7py" id="Fj4-AM-sB9"/>
                         <outlet property="passwordTextField" destination="2cW-W0-qdr" id="a0o-lJ-Yp4"/>
+                        <outlet property="signInButton" destination="l0z-fQ-d92" id="mPO-fN-Q7J"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HEy-mR-OTW" userLabel="First Responder" sceneMemberID="firstResponder"/>
