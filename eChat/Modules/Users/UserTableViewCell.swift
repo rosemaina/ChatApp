@@ -8,30 +8,36 @@
 
 import UIKit
 
+protocol UserTableViewCellDelegate {
+    func didSelectAvatarImage(indexPath: IndexPath)
+}
+
 class UserTableViewCell: UITableViewCell {
 
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var fullNameLabel: UILabel!
     
     var indexPath: IndexPath!
+    var delegate: UserTableViewCellDelegate?
+    
     let tapGestureRecognizer = UITapGestureRecognizer()
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         tapGestureRecognizer.addTarget(self, action: #selector(self.avatarIsTapped))
         avatarImageView.addGestureRecognizer(tapGestureRecognizer)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
     }
 }
 
 extension UserTableViewCell {
     @objc
     func avatarIsTapped() {
-        print("Avatar is tapped at \(indexPath)")
+        delegate?.didSelectAvatarImage(indexPath: indexPath)
     }
     
     func generateCellWith(fUser: FUser, indexPath: IndexPath) {
