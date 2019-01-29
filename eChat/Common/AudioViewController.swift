@@ -18,7 +18,6 @@ class AudioViewController {
     }
 
     func presentAudioRecorder(target: UIViewController) {
-
         let controller = IQAudioRecorderViewController()
 
         controller.delegate = delegate

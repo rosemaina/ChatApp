@@ -16,8 +16,8 @@ class UsersTableViewController: UITableViewController {
     @IBOutlet weak var headerView: UIView!
     
     var allUsers: [FUser] = []
-    var filteredUsers: [FUser] = []
     var allUsersGrouped = NSDictionary() as! [String: [FUser]]
+    var filteredUsers: [FUser] = []
     var sectionsTitleList: [String] = []
     
     let searchController = UISearchController(searchResultsController: nil)
@@ -40,6 +40,72 @@ class UsersTableViewController: UITableViewController {
 
 extension UsersTableViewController {
     
+    // MARK: - TableView DataSource
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        if searchController.isActive && searchController.searchBar.text != "" {
+            return 1
+        } else {
+            return allUsersGrouped.count
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if searchController.isActive && searchController.searchBar.text != "" {
+            return filteredUsers.count
+        } else {
+            
+            // find section titles
+            let sectionTitle = self.sectionsTitleList[section]
+            
+            // users for a given section
+            let users = self.allUsersGrouped[sectionTitle]
+            
+            return users!.count
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! UserTableViewCell
+        
+        var user: FUser
+        
+        if searchController.isActive && searchController.searchBar.text != "" {
+            user = filteredUsers[indexPath.row]
+        } else {
+            let sectionTitle = self.sectionsTitleList[indexPath.section]
+            let users = self.allUsersGrouped[sectionTitle]
+            user = users![indexPath.row]
+        }
+        
+        cell.generateCellWith(fUser: user, indexPath: indexPath)
+        cell.delegate = self
+        return cell
+    }
+    
+    // MARK: - TableView Delegates
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if searchController.isActive && searchController.searchBar.text != "" {
+            return ""
+        } else {
+            return self.sectionsTitleList[section]
+        }
+    }
+    
+    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        if searchController.isActive && searchController.searchBar.text != "" {
+            return nil
+        } else {
+            return self.sectionsTitleList
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
+        return index
+    }
+}
+
+extension UsersTableViewController: UserTableViewCellDelegate {
+    
     @IBAction func filterSegmentValueChanged(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
@@ -53,22 +119,20 @@ extension UsersTableViewController {
         }
     }
     
-    fileprivate func splitDataIntoSections() {
-        var sectionTitle: String = ""
+    func didSelectAvatarImage(indexPath: IndexPath) {
+        let profileViewVc = ProfileViewTableViewController.instantiate(fromAppStoryboard: .ProfileView)
         
-        for i in 0..<self.allUsers.count {
-            let currentUser = self.allUsers[i]
-            let firstCharacter = currentUser.firstname.first
-            let firstCharacterString = String(firstCharacter!)
-            
-            if firstCharacterString != sectionTitle {
-                sectionTitle = firstCharacterString
-                
-                self.allUsersGrouped[sectionTitle] = []
-                self.sectionsTitleList.append(sectionTitle)
-            }
-            self.allUsersGrouped[firstCharacterString]?.append(currentUser)
+        var user: FUser
+        
+        if searchController.isActive && searchController.searchBar.text != "" {
+            user = filteredUsers[indexPath.row]
+        } else {
+            let sectionTitle = self.sectionsTitleList[indexPath.section]
+            let users = self.allUsersGrouped[sectionTitle]
+            user = users![indexPath.row]
         }
+        profileViewVc.user = user
+        self.navigationController?.pushViewController(profileViewVc, animated: true)
     }
     
     func loadUsers(filter: String) {
@@ -120,71 +184,23 @@ extension UsersTableViewController {
             ProgressHUD.dismiss()
         }
     }
-}
-
-extension UsersTableViewController {
     
-    //MARK: - TableView DataSource
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        if searchController.isActive && searchController.searchBar.text != "" {
-            return 1
-        } else {
-            return allUsersGrouped.count
-        }
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if searchController.isActive && searchController.searchBar.text != "" {
-            return filteredUsers.count
-        } else {
-            
-            // find section titles
-            let sectionTitle = self.sectionsTitleList[section]
-            
-            // users for a given section
-            let users = self.allUsersGrouped[sectionTitle]
-            
-            return users!.count
-        }
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! UserTableViewCell
+    fileprivate func splitDataIntoSections() {
+        var sectionTitle: String = ""
         
-        var user: FUser
-        
-        if searchController.isActive && searchController.searchBar.text != "" {
-            user = filteredUsers[indexPath.row]
-        } else {
-            let sectionTitle = self.sectionsTitleList[indexPath.section]
-            let users = self.allUsersGrouped[sectionTitle]
-            user = users![indexPath.row]
+        for i in 0..<self.allUsers.count {
+            let currentUser = self.allUsers[i]
+            let firstCharacter = currentUser.firstname.first
+            let firstCharacterString = String(firstCharacter!)
+            
+            if firstCharacterString != sectionTitle {
+                sectionTitle = firstCharacterString
+                
+                self.allUsersGrouped[sectionTitle] = []
+                self.sectionsTitleList.append(sectionTitle)
+            }
+            self.allUsersGrouped[firstCharacterString]?.append(currentUser)
         }
-        
-        cell.generateCellWith(fUser: user, indexPath: indexPath)
-        return cell
-    }
-    
-    //MARK: - TableView Delegates
-    
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if searchController.isActive && searchController.searchBar.text != "" {
-            return ""
-        } else {
-            return self.sectionsTitleList[section]
-        }
-    }
-    
-    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        if searchController.isActive && searchController.searchBar.text != "" {
-            return nil
-        } else {
-            return self.sectionsTitleList
-        }
-    }
-    
-    override func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
-        return index
     }
 }
 
