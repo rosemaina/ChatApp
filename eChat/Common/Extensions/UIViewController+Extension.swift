@@ -12,6 +12,7 @@ import Foundation
 public enum AppStoryboard: String {
     case Main
     case Chats
+    case Chatting
     case Profile
     case ProfileView
     case SignIn
