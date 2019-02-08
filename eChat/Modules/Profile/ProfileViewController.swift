@@ -12,6 +12,7 @@ import UIKit
 class ProfileViewController: UIViewController {
     
     @IBOutlet weak var avatarImageView: UIImageView!
+    @IBOutlet weak var bottomScrollViewConstraint: NSLayoutConstraint!
     @IBOutlet weak var cityTextField: UITextField!
     @IBOutlet weak var countryTextField: UITextField!
     @IBOutlet weak var nameTextField: UITextField!
@@ -24,6 +25,28 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        self.view.addGestureRecognizer(tap)
+        
+        
+        let textFields = [self.cityTextField, self.countryTextField, self.nameTextField, self.phoneTextField, self.surnameTextField]
+        
+        for textField in textFields {
+            textField?.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        }
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillShow),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil)
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillHide),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil)
     }
 }
 
@@ -105,5 +128,59 @@ extension ProfileViewController {
         
         let mainView = UIStoryboard.init(name: "Chats", bundle: nil).instantiateViewController(withIdentifier: "mainApp") as! UITabBarController
         self.present(mainView, animated: true, completion: nil)
+    }
+}
+
+
+extension ProfileViewController {
+    
+    @objc
+    func dismissKeyboard() {
+        self.view.endEditing(true)
+    }
+    
+    @objc
+    func textFieldDidChange(_ textfield: UITextField) {
+    }
+    
+    @objc
+    func keyboardWillShow(notification: NSNotification) {
+        guard let userInfo = notification.userInfo else {
+            return
+        }
+        
+        let keyboardHeight = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect ?? CGRect.zero).height
+        let animationDuration: Double = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double ?? 0.3
+        let animationCurve: UInt = userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as? UInt ?? UInt(UIView.AnimationCurve.easeInOut.rawValue)
+        let options: UIView.AnimationOptions = UIView.AnimationOptions(rawValue: UInt(animationCurve << 16))
+        
+        UIView.animate(withDuration: animationDuration,
+                       delay: 0.0,
+                       options: options,
+                       animations: {
+                        self.bottomScrollViewConstraint.constant = 10 + keyboardHeight
+                        self.view.layoutIfNeeded()
+        },
+                       completion: nil)
+    }
+    
+    @objc
+    func keyboardWillHide(notification: NSNotification) {
+        guard let userInfo = notification.userInfo else {
+            return
+        }
+        
+        let animationDuration: Double = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double ?? 0.3
+        let animationCurve: UInt = userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as? UInt ?? UInt(UIView.AnimationCurve.easeInOut.rawValue)
+        let options: UIView.AnimationOptions = UIView.AnimationOptions(rawValue: UInt(animationCurve << 16))
+        
+        UIView.animate(withDuration: animationDuration,
+                       delay: 0.0,
+                       options: options,
+                       animations: {
+                        self.bottomScrollViewConstraint.constant = 112
+                        self.view.layoutIfNeeded()
+        },
+                       completion: nil)
     }
 }

@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		0940FB513071ED2029F7F937 /* Pods_eChatUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D69C347B1FA1BAE4CAFD3661 /* Pods_eChatUITests.framework */; };
 		305C664A22084C03008CD41E /* OutgoingMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305C664922084C03008CD41E /* OutgoingMessages.swift */; };
-		305C664C2208572C008CD41E /* IncomingMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305C664B2208572C008CD41E /* IncomingMessages.swift */; };
+		305C664C2208572C008CD41E /* IncomingMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305C664B2208572C008CD41E /* IncomingMessage.swift */; };
+		305C664E220C46D7008CD41E /* PhotoMediaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305C664D220C46D7008CD41E /* PhotoMediaItem.swift */; };
 		307F722321F9969600A3DA14 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307F722221F9969600A3DA14 /* AppDelegate.swift */; };
 		307F722821F9969600A3DA14 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 307F722621F9969600A3DA14 /* Main.storyboard */; };
 		307F722A21F9969700A3DA14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 307F722921F9969700A3DA14 /* Assets.xcassets */; };
@@ -72,7 +73,8 @@
 		15EEFFE1EE18AA34186A33D5 /* Pods-eChatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eChatTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-eChatTests/Pods-eChatTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2BC5E1C1FAB6A68A54B77D51 /* Pods-eChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-eChat/Pods-eChat.debug.xcconfig"; sourceTree = "<group>"; };
 		305C664922084C03008CD41E /* OutgoingMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutgoingMessages.swift; sourceTree = "<group>"; };
-		305C664B2208572C008CD41E /* IncomingMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomingMessages.swift; sourceTree = "<group>"; };
+		305C664B2208572C008CD41E /* IncomingMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomingMessage.swift; sourceTree = "<group>"; };
+		305C664D220C46D7008CD41E /* PhotoMediaItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoMediaItem.swift; sourceTree = "<group>"; };
 		307F721F21F9969600A3DA14 /* eChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		307F722221F9969600A3DA14 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		307F722721F9969600A3DA14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -280,9 +282,10 @@
 				307F728E21F9E12800A3DA14 /* FCollectionReference.swift */,
 				307F728C21F9E12800A3DA14 /* FUser.swift */,
 				307F728F21F9E12800A3DA14 /* HelperFunctions.swift */,
-				305C664B2208572C008CD41E /* IncomingMessages.swift */,
+				305C664B2208572C008CD41E /* IncomingMessage.swift */,
 				305C664922084C03008CD41E /* OutgoingMessages.swift */,
 				308DBE82220040AA003C72E2 /* Recents.swift */,
+				305C664D220C46D7008CD41E /* PhotoMediaItem.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -665,6 +668,7 @@
 				307F728021F9CEA900A3DA14 /* SignInViewController.swift in Sources */,
 				308C354B2202E64800326F95 /* ChattingViewController.swift in Sources */,
 				30CBCEE321FB2A4A00E33744 /* SettingsTableViewController.swift in Sources */,
+				305C664E220C46D7008CD41E /* PhotoMediaItem.swift in Sources */,
 				307F729321F9E12800A3DA14 /* AudioViewController.swift in Sources */,
 				307F726B21F9CD4100A3DA14 /* UIImage+Extensions.swift in Sources */,
 				308DBE7C21FF6938003C72E2 /* ProfileViewTableViewController.swift in Sources */,
@@ -675,7 +679,7 @@
 				307F726C21F9CD4100A3DA14 /* UIViewController+Extension.swift in Sources */,
 				307F727921F9CE8D00A3DA14 /* SignUpViewController.swift in Sources */,
 				308C35492200842700326F95 /* RecentChatsTableViewCell.swift in Sources */,
-				305C664C2208572C008CD41E /* IncomingMessages.swift in Sources */,
+				305C664C2208572C008CD41E /* IncomingMessage.swift in Sources */,
 				307F729621F9E12800A3DA14 /* FCollectionReference.swift in Sources */,
 				305C664A22084C03008CD41E /* OutgoingMessages.swift in Sources */,
 				307F729021F9E12800A3DA14 /* Constants.swift in Sources */,
