@@ -70,11 +70,11 @@ class RecentChatsTableViewCell: UITableViewCell {
         
         var date: Date!
         
-        if let createdDate = recentChat[kDATE] {
+        if let createdDate = recentChat[kDATE] as? String {
             if (createdDate as! String).count != 14 {
                 date = Date()
             } else {
-                date = dateFormatter().date(from: createdDate as! String)!
+                date = dateFormatter().date(from: createdDate)
             }
         } else {
             date = Date()

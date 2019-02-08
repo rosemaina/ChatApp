@@ -59,6 +59,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2Yv-HH-PI6"/>
                     </view>
+                    <connections>
+                        <outlet property="continueButton" destination="afm-tp-cKr" id="PBJ-VG-IbS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tcd-Oc-Cm2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

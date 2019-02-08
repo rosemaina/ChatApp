@@ -11,6 +11,7 @@ import UIKit
 
 class SignInViewController: UIViewController {
     
+    @IBOutlet weak var bottomSignInConstraint: NSLayoutConstraint!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signInButton: UIButton!
@@ -106,7 +107,7 @@ extension SignInViewController {
                        delay: 0.0,
                        options: options,
                        animations: {
-                        // Do animations for IBOutlets here
+                        self.bottomSignInConstraint.constant = 10 + keyboardHeight
                         self.view.layoutIfNeeded()
         },
                        completion: nil)
@@ -126,7 +127,7 @@ extension SignInViewController {
                        delay: 0.0,
                        options: options,
                        animations: {
-                        // Do animations for IBOutlets here
+                        self.bottomSignInConstraint.constant = 36
                         self.view.layoutIfNeeded()
         },
                        completion: nil)

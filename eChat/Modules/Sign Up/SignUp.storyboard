@@ -101,10 +101,12 @@
                         <viewLayoutGuide key="safeArea" id="R3f-lF-lue"/>
                     </view>
                     <connections>
+                        <outlet property="bottomSignUpContraint" destination="Rvw-LC-tgh" id="Cgf-No-0gl"/>
                         <outlet property="confirmPasswordTextField" destination="dA0-Qy-wBX" id="4aO-d9-28W"/>
                         <outlet property="emailTextField" destination="zQQ-as-ygp" id="xB4-GM-zJD"/>
                         <outlet property="passwordTextField" destination="OpP-Ar-5Ej" id="IE0-SP-fCu"/>
                         <outlet property="signUpButton" destination="Kbm-3P-Ym1" id="hp7-0r-dAF"/>
+                        <outlet property="topEmailTextFieldConstraint" destination="1Ut-tE-Qar" id="vJz-uf-0iW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GY0-R2-IEm" userLabel="First Responder" sceneMemberID="firstResponder"/>

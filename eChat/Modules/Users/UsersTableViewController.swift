@@ -92,6 +92,8 @@ extension UsersTableViewController {
     }
     
     override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        
+        // return list of section titles to display in section index view (e.g. "ABCD...Z#")
         if searchController.isActive && searchController.searchBar.text != "" {
             return nil
         } else {
@@ -100,6 +102,8 @@ extension UsersTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
+        
+       // tell table which section corresponds to section title/index (e.g. "B",1)
         return index
     }
     
@@ -116,6 +120,7 @@ extension UsersTableViewController {
             user = users![indexPath.row]
         }
         
+        // Cannot start private chat proparly for now //
         startPrivateChat(user1: FUser.currentUser()!, user2: user)
     }
 }

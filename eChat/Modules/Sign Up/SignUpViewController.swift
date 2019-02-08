@@ -10,11 +10,13 @@ import ProgressHUD
 import UIKit
 
 class SignUpViewController: UIViewController {
-
-    @IBOutlet weak var signUpButton: UIButton!
+    
+    @IBOutlet weak var bottomSignUpContraint: NSLayoutConstraint!
     @IBOutlet weak var confirmPasswordTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet weak var topEmailTextFieldConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,7 +104,8 @@ extension SignUpViewController {
                        delay: 0.0,
                        options: options,
                        animations: {
-                        // Do animations for IBOutlets here
+                        self.bottomSignUpContraint.constant = 10 + keyboardHeight
+                        self.topEmailTextFieldConstraint.constant = 10
                         self.view.layoutIfNeeded()
         },
                        completion: nil)
@@ -122,7 +125,8 @@ extension SignUpViewController {
                        delay: 0.0,
                        options: options,
                        animations: {
-                        // Do animations for IBOutlets here
+                        self.bottomSignUpContraint.constant = 36
+                        self.topEmailTextFieldConstraint.constant = 40
                         self.view.layoutIfNeeded()
         },
                        completion: nil)

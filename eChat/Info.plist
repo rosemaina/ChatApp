@@ -34,12 +34,17 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>UISupportedInterfaceOrientations~ipad</key>
-	<array>
-		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationPortraitUpsideDown</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>eChat needs to access your camera</string>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>eChat needs to access your media library</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>eChat needs to access your photo library</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>eChat needs to access your audio</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>eChat needs to access your location</string>
+	<key>NSContactsUsageDescription</key>
+	<string>eChat needs to access your contacts</string>
 </dict>
 </plist>

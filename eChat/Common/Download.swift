@@ -14,7 +14,7 @@ import MBProgressHUD
 
 let storage = Storage.storage()
 
-//MARK:- IMAGES
+// MARK: - Images Uploads and Downloads Methods
 
 func uploadImage(image: UIImage, chatRoomId: String, view: UIView, completion: @escaping (_ imageLink: String?) -> Void) {
     let progressHUD = MBProgressHUD.showAdded(to: view, animated: true)
@@ -92,7 +92,7 @@ func downloadImage(imageUrl: String, completion: @escaping(_ image: UIImage?) ->
     }
 }
 
-//MARK:- VIDEO
+// MARK: - Video Uploads and Downloads Methods
 
 func uploadVideo(video: NSData, chatRoomId: String, view: UIView, completion: @escaping(_ videoLink: String?) -> Void) {
     let progressHUD = MBProgressHUD.showAdded(to: view, animated: true)
@@ -161,7 +161,7 @@ func downloadVideo(videoUrl: String, completion: @escaping(_ isReadyToPlay: Bool
     }
 }
 
-//MARK:- AUDIO MESSAGES
+// MARK: - AUDIO MESSAGES
 
 func uploadAudio(autioPath: String, chatRoomId: String, view: UIView, completion: @escaping(_ audioLink: String?) -> Void) {
     let progressHUD = MBProgressHUD.showAdded(to: view, animated: true)
@@ -231,7 +231,7 @@ func downloadAudio(audioUrl: String, completion: @escaping(_ audioFileName: Stri
     }
 }
 
-//MARK:- HELPERS
+// MARK: - Helper Methods
 
 func videoThumbnail(video: NSURL) -> UIImage {
     let asset = AVURLAsset(url: video as URL, options: nil)

@@ -18,7 +18,7 @@ public let USER_DID_LOGIN_NOTIFICATION = "UserDidLoginNotification"
 public let APP_STARTED_NOTIFICATION = "AppStartedNotification"
 
 //MARK:- IDs and KEYS
-public let kFILEREFERENCE = ""
+public let kFILEREFERENCE = "gs://echat-dff1b.appspot.com/"
 public let kONESIGNALAPPID = ""
 public let kSINCHKEY = ""
 public let kSINCHSECRET = ""
