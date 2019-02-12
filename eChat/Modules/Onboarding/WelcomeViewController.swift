@@ -15,10 +15,12 @@ class WelcomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.accessibilityIdentifier = "welcomeView"
         self.continueButton.layer.cornerRadius = 6
     }
     
     @IBAction func continueButtonPressed(_ sender: UIButton) {
+        
         let signInVc = SignInViewController.instantiate(fromAppStoryboard: .SignIn)
         self.present(signInVc, animated: true, completion: nil)
     }

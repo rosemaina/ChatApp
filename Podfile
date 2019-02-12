@@ -18,22 +18,24 @@ def eChat_pods
     pod 'IDMPhotoBrowser'
 
     pod 'ImagePicker'
+
+    pod 'Quick'
+    pod 'Nimble'
  
 end
 
 #PODS FOR TARGET eCHAT
-target 'eChat' do
+  target 'eChat' do
     eChat_pods
-
 
   target 'eChatTests' do
     inherit! :search_paths
-    # Pods for testing
+    eChat_pods 
   end
 
   target 'eChatUITests' do
     inherit! :search_paths
-    # Pods for testing
+    eChat_pods 
   end
 
 end

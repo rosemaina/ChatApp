@@ -18,9 +18,13 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var topEmailTextFieldConstraint: NSLayoutConstraint!
     
+    var viewModel: SignUpViewModel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        viewModel = SignUpViewModel()
+        
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         self.view.addGestureRecognizer(tap)
         
@@ -51,32 +55,11 @@ extension SignUpViewController {
     }
     
     @IBAction func clickToSignUp(_ sender: UIButton) {
-        
-        if emailTextField.text != "" && passwordTextField.text != "" && confirmPasswordTextField.text != "" {
-            if passwordTextField.text == confirmPasswordTextField.text {
-                let profileVc = ProfileViewController.instantiate(fromAppStoryboard: .Profile)
-                profileVc.email = emailTextField.text!
-                profileVc.password = passwordTextField.text!
-                
-                self.present(profileVc, animated: true, completion: nil)
-            } else {
-                ProgressHUD.showError("Passwords dont match!")
-            }            
-        } else {
-            ProgressHUD.showError("All fields are required!")
-        }
-    }
-    
-    func goToApp() {
-        ProgressHUD.dismiss()
-        
-        let mainView = UIStoryboard.init(name: "Chats", bundle: nil).instantiateViewController(withIdentifier: "mainApp") as! UITabBarController
-        self.present(mainView, animated: true, completion: nil)
+        viewModel.signUp(email: emailTextField.text, password: passwordTextField.text, confirmPassword: confirmPasswordTextField.text, viewController: self)
     }
 }
 
 // MARK:- KeyBoard Functions
-
 extension SignUpViewController {
 
     @objc
@@ -86,7 +69,6 @@ extension SignUpViewController {
 
     @objc
     func textFieldDidChange(_ textfield: UITextField) {
-        
     }
 
     @objc

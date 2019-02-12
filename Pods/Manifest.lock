@@ -124,9 +124,11 @@ PODS:
     - nanopb/encode (= 0.3.901)
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
+  - Nimble (7.3.1)
   - pop (1.0.12)
   - ProgressHUD (2.60)
   - Protobuf (3.6.1)
+  - Quick (1.3.2)
   - SCSiriWaveformView (1.1.1)
   - SDWebImage (4.0.0):
     - SDWebImage/Core (= 4.0.0)
@@ -143,7 +145,9 @@ DEPENDENCIES:
   - IQAudioRecorderController
   - JSQMessagesViewController (= 7.3.3)
   - MBProgressHUD
+  - Nimble
   - ProgressHUD
+  - Quick
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -171,9 +175,11 @@ SPEC REPOS:
     - leveldb-library
     - MBProgressHUD
     - nanopb
+    - Nimble
     - pop
     - ProgressHUD
     - Protobuf
+    - Quick
     - SCSiriWaveformView
     - SDWebImage
 
@@ -202,12 +208,14 @@ SPEC CHECKSUMS:
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
+  Nimble: 04f732da099ea4d153122aec8c2a88fd0c7219ae
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
   ProgressHUD: 4e4efbaf4f5de8bd32e0c4c3b6644a90ea1a8c3e
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
+  Quick: 2623cb30d7a7f41ca62f684f679586558f483d46
   SCSiriWaveformView: 15b9dd6f94c7536e2032b34a35c6ff74d38c7411
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
 
-PODFILE CHECKSUM: 34a1cac64a8ac7a1890a5859cdd2c896b45b87c8
+PODFILE CHECKSUM: 11d02827816be9b6bd476200c862f3c8df4d8dbf
 
 COCOAPODS: 1.5.3

@@ -18,6 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
         
+//        if CommandLine.arguments.contains("--uitesting") {
+//            resetState()
+//        }
+        
         // AutoLogin --> runs when auth status changes
         authListener = Auth.auth().addStateDidChangeListener({ (auth, user) in
             
@@ -65,6 +69,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let mainView = UIStoryboard.init(name: "Chats", bundle: nil).instantiateViewController(withIdentifier: "mainApp") as! UITabBarController
         self.window?.rootViewController = mainView
+    }
+    
+    func resetState() {
+        let domain = Bundle.main.bundleIdentifier!
+        UserDefaults.standard.removePersistentDomain(forName: domain)
+        print(Array(UserDefaults.standard.dictionaryRepresentation().keys).count)
     }
 }
 

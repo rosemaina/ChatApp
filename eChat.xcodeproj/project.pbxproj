@@ -11,6 +11,14 @@
 		305C664A22084C03008CD41E /* OutgoingMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305C664922084C03008CD41E /* OutgoingMessages.swift */; };
 		305C664C2208572C008CD41E /* IncomingMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305C664B2208572C008CD41E /* IncomingMessage.swift */; };
 		305C664E220C46D7008CD41E /* PhotoMediaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305C664D220C46D7008CD41E /* PhotoMediaItem.swift */; };
+		305C6650220D79AF008CD41E /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305C664F220D79AF008CD41E /* SignInViewModel.swift */; };
+		305C6654220DBDE7008CD41E /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305C6653220DBDE7008CD41E /* SignUpViewModel.swift */; };
+		305C6656220DC5B9008CD41E /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305C6655220DC5B9008CD41E /* ProfileViewModel.swift */; };
+		305C6658220E34DC008CD41E /* ProfileViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305C6657220E34DC008CD41E /* ProfileViewViewModel.swift */; };
+		305C665A2210A652008CD41E /* UsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305C66592210A652008CD41E /* UsersViewModel.swift */; };
+		305C665C2210AC98008CD41E /* ChatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305C665B2210AC98008CD41E /* ChatsViewModel.swift */; };
+		305C665E2210B148008CD41E /* ChattingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305C665D2210B148008CD41E /* ChattingViewModel.swift */; };
+		305C666922115D6A008CD41E /* SignInViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305C666822115D6A008CD41E /* SignInViewModelTests.swift */; };
 		307F722321F9969600A3DA14 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307F722221F9969600A3DA14 /* AppDelegate.swift */; };
 		307F722821F9969600A3DA14 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 307F722621F9969600A3DA14 /* Main.storyboard */; };
 		307F722A21F9969700A3DA14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 307F722921F9969700A3DA14 /* Assets.xcassets */; };
@@ -75,6 +83,14 @@
 		305C664922084C03008CD41E /* OutgoingMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutgoingMessages.swift; sourceTree = "<group>"; };
 		305C664B2208572C008CD41E /* IncomingMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomingMessage.swift; sourceTree = "<group>"; };
 		305C664D220C46D7008CD41E /* PhotoMediaItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoMediaItem.swift; sourceTree = "<group>"; };
+		305C664F220D79AF008CD41E /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
+		305C6653220DBDE7008CD41E /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		305C6655220DC5B9008CD41E /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		305C6657220E34DC008CD41E /* ProfileViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewViewModel.swift; sourceTree = "<group>"; };
+		305C66592210A652008CD41E /* UsersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewModel.swift; sourceTree = "<group>"; };
+		305C665B2210AC98008CD41E /* ChatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsViewModel.swift; sourceTree = "<group>"; };
+		305C665D2210B148008CD41E /* ChattingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingViewModel.swift; sourceTree = "<group>"; };
+		305C666822115D6A008CD41E /* SignInViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModelTests.swift; sourceTree = "<group>"; };
 		307F721F21F9969600A3DA14 /* eChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		307F722221F9969600A3DA14 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		307F722721F9969600A3DA14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -163,6 +179,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		305C666522115CF8008CD41E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				305C666822115D6A008CD41E /* SignInViewModelTests.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		307F721621F9969600A3DA14 = {
 			isa = PBXGroup;
 			children = (
@@ -202,6 +226,7 @@
 		307F723621F9969700A3DA14 /* eChatTests */ = {
 			isa = PBXGroup;
 			children = (
+				305C666522115CF8008CD41E /* ViewModel */,
 				307F723721F9969700A3DA14 /* eChatTests.swift */,
 				307F723921F9969700A3DA14 /* Info.plist */,
 			);
@@ -235,6 +260,7 @@
 			children = (
 				307F727F21F9CEA900A3DA14 /* SignIn.storyboard */,
 				307F727E21F9CEA800A3DA14 /* SignInViewController.swift */,
+				305C664F220D79AF008CD41E /* SignInViewModel.swift */,
 			);
 			path = "Sign In";
 			sourceTree = "<group>";
@@ -244,6 +270,7 @@
 			children = (
 				307F727621F9CE8D00A3DA14 /* SignUp.storyboard */,
 				307F727721F9CE8D00A3DA14 /* SignUpViewController.swift */,
+				305C6653220DBDE7008CD41E /* SignUpViewModel.swift */,
 			);
 			path = "Sign Up";
 			sourceTree = "<group>";
@@ -254,6 +281,7 @@
 				308DBE8121FF756E003C72E2 /* ProfileView */,
 				307F727B21F9CE9900A3DA14 /* Profile.storyboard */,
 				307F727A21F9CE9900A3DA14 /* ProfileViewController.swift */,
+				305C6655220DC5B9008CD41E /* ProfileViewModel.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -264,6 +292,7 @@
 				308C354E2202EC9700326F95 /* Chatting */,
 				307F727421F9CDD100A3DA14 /* Chats.storyboard */,
 				308DBE7921FBB6A5003C72E2 /* ChatsViewController.swift */,
+				305C665B2210AC98008CD41E /* ChatsViewModel.swift */,
 				308C35482200842700326F95 /* RecentChatsTableViewCell.swift */,
 				30CBCEE221FB2A4A00E33744 /* SettingsTableViewController.swift */,
 			);
@@ -329,6 +358,7 @@
 			children = (
 				308C354C2202EC5800326F95 /* Chatting.storyboard */,
 				308C354A2202E64800326F95 /* ChattingViewController.swift */,
+				305C665D2210B148008CD41E /* ChattingViewModel.swift */,
 			);
 			path = Chatting;
 			sourceTree = "<group>";
@@ -339,6 +369,7 @@
 				308DBE7321FB98F2003C72E2 /* Users.storyboard */,
 				308DBE7521FBA021003C72E2 /* UserTableViewCell.swift */,
 				308DBE7721FBAB3F003C72E2 /* UsersTableViewController.swift */,
+				305C66592210A652008CD41E /* UsersViewModel.swift */,
 			);
 			path = Users;
 			sourceTree = "<group>";
@@ -348,6 +379,7 @@
 			children = (
 				308DBE7F21FF71F0003C72E2 /* ProfileView.storyboard */,
 				308DBE7B21FF6938003C72E2 /* ProfileViewTableViewController.swift */,
+				305C6657220E34DC008CD41E /* ProfileViewViewModel.swift */,
 			);
 			path = ProfileView;
 			sourceTree = "<group>";
@@ -396,6 +428,8 @@
 				307F722F21F9969700A3DA14 /* Sources */,
 				307F723021F9969700A3DA14 /* Frameworks */,
 				307F723121F9969700A3DA14 /* Resources */,
+				B99AD6A8D316DA445E3D03C9 /* [CP] Embed Pods Frameworks */,
+				CA09CEF426787882DDF98B9D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -415,6 +449,8 @@
 				307F723A21F9969700A3DA14 /* Sources */,
 				307F723B21F9969700A3DA14 /* Frameworks */,
 				307F723C21F9969700A3DA14 /* Resources */,
+				2FCE3B394348B0822EB30D11 /* [CP] Embed Pods Frameworks */,
+				C32A4ACA181CA233AD32CE12 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -505,6 +541,68 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		2FCE3B394348B0822EB30D11 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-eChatUITests/Pods-eChatUITests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/DACircularProgress/DACircularProgress.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/IDMPhotoBrowser/IDMPhotoBrowser.framework",
+				"${BUILT_PRODUCTS_DIR}/IQAudioRecorderController/IQAudioRecorderController.framework",
+				"${BUILT_PRODUCTS_DIR}/ImagePicker/ImagePicker.framework",
+				"${BUILT_PRODUCTS_DIR}/JSQMessagesViewController/JSQMessagesViewController.framework",
+				"${BUILT_PRODUCTS_DIR}/JSQSystemSoundPlayer/JSQSystemSoundPlayer.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
+				"${BUILT_PRODUCTS_DIR}/ProgressHUD/ProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
+				"${BUILT_PRODUCTS_DIR}/SCSiriWaveformView/SCSiriWaveformView.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DACircularProgress.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IDMPhotoBrowser.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQAudioRecorderController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImagePicker.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQMessagesViewController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQSystemSoundPlayer.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCSiriWaveformView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-eChatUITests/Pods-eChatUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		38AF4B9B96FD828DC355B286 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -549,7 +647,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BE83421AB9B7E165A086D5D3 /* [CP] Embed Pods Frameworks */ = {
+		B99AD6A8D316DA445E3D03C9 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -557,7 +655,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-eChat/Pods-eChat-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-eChatTests/Pods-eChatTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
 				"${BUILT_PRODUCTS_DIR}/DACircularProgress/DACircularProgress.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
@@ -568,8 +666,10 @@
 				"${BUILT_PRODUCTS_DIR}/JSQMessagesViewController/JSQMessagesViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/JSQSystemSoundPlayer/JSQSystemSoundPlayer.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
 				"${BUILT_PRODUCTS_DIR}/ProgressHUD/ProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
 				"${BUILT_PRODUCTS_DIR}/SCSiriWaveformView/SCSiriWaveformView.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
@@ -592,8 +692,72 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQMessagesViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQSystemSoundPlayer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCSiriWaveformView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-eChatTests/Pods-eChatTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BE83421AB9B7E165A086D5D3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-eChat/Pods-eChat-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/DACircularProgress/DACircularProgress.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/IDMPhotoBrowser/IDMPhotoBrowser.framework",
+				"${BUILT_PRODUCTS_DIR}/IQAudioRecorderController/IQAudioRecorderController.framework",
+				"${BUILT_PRODUCTS_DIR}/ImagePicker/ImagePicker.framework",
+				"${BUILT_PRODUCTS_DIR}/JSQMessagesViewController/JSQMessagesViewController.framework",
+				"${BUILT_PRODUCTS_DIR}/JSQSystemSoundPlayer/JSQSystemSoundPlayer.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
+				"${BUILT_PRODUCTS_DIR}/ProgressHUD/ProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
+				"${BUILT_PRODUCTS_DIR}/SCSiriWaveformView/SCSiriWaveformView.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DACircularProgress.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IDMPhotoBrowser.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQAudioRecorderController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImagePicker.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQMessagesViewController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQSystemSoundPlayer.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCSiriWaveformView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
@@ -605,6 +769,50 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-eChat/Pods-eChat-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C32A4ACA181CA233AD32CE12 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-eChatUITests/Pods-eChatUITests-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseFirestore/gRPCCertificates.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gRPCCertificates.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-eChatUITests/Pods-eChatUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CA09CEF426787882DDF98B9D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-eChatTests/Pods-eChatTests-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseFirestore/gRPCCertificates.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gRPCCertificates.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-eChatTests/Pods-eChatTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D2A73485A3EB2F4897D3CDAD /* [CP] Check Pods Manifest.lock */ = {
@@ -660,27 +868,34 @@
 			files = (
 				307F729521F9E12800A3DA14 /* CountryCode.swift in Sources */,
 				308DBE83220040AA003C72E2 /* Recents.swift in Sources */,
+				305C665A2210A652008CD41E /* UsersViewModel.swift in Sources */,
+				305C6656220DC5B9008CD41E /* ProfileViewModel.swift in Sources */,
 				308DBE7A21FBB6A5003C72E2 /* ChatsViewController.swift in Sources */,
 				307F727C21F9CE9900A3DA14 /* ProfileViewController.swift in Sources */,
 				307F722321F9969600A3DA14 /* AppDelegate.swift in Sources */,
 				308DBE7821FBAB3F003C72E2 /* UsersTableViewController.swift in Sources */,
+				305C6654220DBDE7008CD41E /* SignUpViewModel.swift in Sources */,
 				307F729221F9E12800A3DA14 /* Download.swift in Sources */,
 				307F728021F9CEA900A3DA14 /* SignInViewController.swift in Sources */,
 				308C354B2202E64800326F95 /* ChattingViewController.swift in Sources */,
 				30CBCEE321FB2A4A00E33744 /* SettingsTableViewController.swift in Sources */,
 				305C664E220C46D7008CD41E /* PhotoMediaItem.swift in Sources */,
+				305C665C2210AC98008CD41E /* ChatsViewModel.swift in Sources */,
 				307F729321F9E12800A3DA14 /* AudioViewController.swift in Sources */,
 				307F726B21F9CD4100A3DA14 /* UIImage+Extensions.swift in Sources */,
 				308DBE7C21FF6938003C72E2 /* ProfileViewTableViewController.swift in Sources */,
 				307F727321F9CD7500A3DA14 /* WelcomeViewController.swift in Sources */,
+				305C6658220E34DC008CD41E /* ProfileViewViewModel.swift in Sources */,
 				308DBE7621FBA021003C72E2 /* UserTableViewCell.swift in Sources */,
 				307F729721F9E12800A3DA14 /* HelperFunctions.swift in Sources */,
 				307F729121F9E12800A3DA14 /* Camera.swift in Sources */,
 				307F726C21F9CD4100A3DA14 /* UIViewController+Extension.swift in Sources */,
+				305C665E2210B148008CD41E /* ChattingViewModel.swift in Sources */,
 				307F727921F9CE8D00A3DA14 /* SignUpViewController.swift in Sources */,
 				308C35492200842700326F95 /* RecentChatsTableViewCell.swift in Sources */,
 				305C664C2208572C008CD41E /* IncomingMessage.swift in Sources */,
 				307F729621F9E12800A3DA14 /* FCollectionReference.swift in Sources */,
+				305C6650220D79AF008CD41E /* SignInViewModel.swift in Sources */,
 				305C664A22084C03008CD41E /* OutgoingMessages.swift in Sources */,
 				307F729021F9E12800A3DA14 /* Constants.swift in Sources */,
 				307F729421F9E12800A3DA14 /* FUser.swift in Sources */,
@@ -691,6 +906,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				305C666922115D6A008CD41E /* SignInViewModelTests.swift in Sources */,
 				307F723821F9969700A3DA14 /* eChatTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

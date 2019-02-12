@@ -17,7 +17,7 @@ class ProfileViewTableViewController: UITableViewController {
     @IBOutlet weak var messageButton: UIButton!
     @IBOutlet weak var phoneNumberLabel: UILabel!
     
-    var user: FUser?
+    var viewModel: ProfileViewViewModel = ProfileViewViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,62 +56,22 @@ extension ProfileViewTableViewController {
 extension ProfileViewTableViewController {
     
     @IBAction func blockUserButtonTapped(_ sender: Any) {
-        var currentBlockedIDs = FUser.currentUser()!.blockedUsers
-        
-        if currentBlockedIDs.contains(user!.objectId) {
-            currentBlockedIDs.remove(at: currentBlockedIDs.index(of: user!.objectId)!)
-        } else {
-            currentBlockedIDs.append(user!.objectId)
-        }
-        
-        updateCurrentUserInFirestore(withValues: [kBLOCKEDUSERID : currentBlockedIDs]) { (error) in
-            if error != nil {
-                print("Error updating user \(String(describing: error?.localizedDescription))")
-                return
-            }
-            self.updateBlockUserStatus()
-        }
+        viewModel.blockUsers(viewController: self)
     }
     
     @IBAction func callButtonTapped(_ sender: UIButton) {
-        print("Call user \(user!.fullname)")
+        print("Call user \(viewModel.user!.fullname)")
     }
     
     @IBAction func messageButtonTapped(_ sender: Any) {
-        print("Message user \(user!.fullname)")
+        print("Message user \(viewModel.user!.fullname)")
     }
     
     func setupUserInfo() {
-        if user != nil {
-            self.title = "Profile"
-            self.fullNameLabel.text = user?.fullname
-            self.phoneNumberLabel.text = user?.phoneNumber
-            
-            updateBlockUserStatus()
-            
-            imageFromData(pictureData: user!.avatar) { (avatarImage) in
-                if avatarImage != nil {
-                    self.avatarImageView.image = avatarImage?.circleMasked
-                }
-            }
-        }
+        viewModel.setupUserInfo(viewController: self)
     }
     
     func updateBlockUserStatus() {
-        if user!.objectId != FUser.currentId() {
-            self.blockUserButton.isHidden = false
-            self.callButton.isHidden = false
-            self.messageButton.isHidden = false
-        } else {
-            self.blockUserButton.isHidden = true
-            self.callButton.isHidden = true
-            self.messageButton.isHidden = true
-        }
-        
-        if FUser.currentUser()!.blockedUsers.contains(user!.objectId) {
-            blockUserButton.setTitle("Unblock User", for: .normal)
-        } else {
-            blockUserButton.setTitle("Block User", for: .normal)
-        }
+        viewModel.updateBlockUserStatus(viewController: self)
     }
 }

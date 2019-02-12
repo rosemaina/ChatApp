@@ -15,12 +15,9 @@ class UsersTableViewController: UITableViewController {
     @IBOutlet weak var filterSegmentedControl: UISegmentedControl!
     @IBOutlet weak var headerView: UIView!
     
-    var allUsers: [FUser] = []
-    var allUsersGrouped = NSDictionary() as! [String: [FUser]]
-    var filteredUsers: [FUser] = []
-    var sectionsTitleList: [String] = []
-    
     let searchController = UISearchController(searchResultsController: nil)
+
+    var viewModel: UsersViewModel = UsersViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +31,7 @@ class UsersTableViewController: UITableViewController {
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         
-        loadUsers(filter: kCITY)
+        viewModel.loadUsers(filter: kCITY, viewController: self)
     }
 }
 
@@ -45,20 +42,20 @@ extension UsersTableViewController {
         if searchController.isActive && searchController.searchBar.text != "" {
             return 1
         } else {
-            return allUsersGrouped.count
+            return viewModel.allUsersGrouped.count
         }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if searchController.isActive && searchController.searchBar.text != "" {
-            return filteredUsers.count
+            return viewModel.filteredUsers.count
         } else {
             
             // find section titles
-            let sectionTitle = self.sectionsTitleList[section]
+            let sectionTitle = viewModel.sectionsTitleList[section]
             
             // users for a given section
-            let users = self.allUsersGrouped[sectionTitle]
+            let users = viewModel.allUsersGrouped[sectionTitle]
             
             return users!.count
         }
@@ -70,10 +67,10 @@ extension UsersTableViewController {
         var user: FUser
         
         if searchController.isActive && searchController.searchBar.text != "" {
-            user = filteredUsers[indexPath.row]
+            user = viewModel.filteredUsers[indexPath.row]
         } else {
-            let sectionTitle = self.sectionsTitleList[indexPath.section]
-            let users = self.allUsersGrouped[sectionTitle]
+            let sectionTitle = viewModel.sectionsTitleList[indexPath.section]
+            let users = viewModel.allUsersGrouped[sectionTitle]
             user = users![indexPath.row]
         }
         
@@ -87,7 +84,7 @@ extension UsersTableViewController {
         if searchController.isActive && searchController.searchBar.text != "" {
             return ""
         } else {
-            return self.sectionsTitleList[section]
+            return viewModel.sectionsTitleList[section]
         }
     }
     
@@ -97,7 +94,7 @@ extension UsersTableViewController {
         if searchController.isActive && searchController.searchBar.text != "" {
             return nil
         } else {
-            return self.sectionsTitleList
+            return viewModel.sectionsTitleList
         }
     }
     
@@ -113,10 +110,10 @@ extension UsersTableViewController {
         var user: FUser
         
         if searchController.isActive && searchController.searchBar.text != "" {
-            user = filteredUsers[indexPath.row]
+            user = viewModel.filteredUsers[indexPath.row]
         } else {
-            let sectionTitle = self.sectionsTitleList[indexPath.section]
-            let users = self.allUsersGrouped[sectionTitle]
+            let sectionTitle = viewModel.sectionsTitleList[indexPath.section]
+            let users = viewModel.allUsersGrouped[sectionTitle]
             user = users![indexPath.row]
         }
         
@@ -130,11 +127,11 @@ extension UsersTableViewController: UserTableViewCellDelegate {
     @IBAction func filterSegmentValueChanged(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
-            loadUsers(filter: kCITY)
+            viewModel.loadUsers(filter: kCITY, viewController: self)
         case 1:
-            loadUsers(filter: kCOUNTRY)
+            viewModel.loadUsers(filter: kCOUNTRY, viewController: self)
         case 2:
-            loadUsers(filter: "")
+            viewModel.loadUsers(filter: "", viewController: self)
         default:
             return
         }
@@ -146,82 +143,14 @@ extension UsersTableViewController: UserTableViewCellDelegate {
         var user: FUser
         
         if searchController.isActive && searchController.searchBar.text != "" {
-            user = filteredUsers[indexPath.row]
+            user = viewModel.filteredUsers[indexPath.row]
         } else {
-            let sectionTitle = self.sectionsTitleList[indexPath.section]
-            let users = self.allUsersGrouped[sectionTitle]
+            let sectionTitle = viewModel.sectionsTitleList[indexPath.section]
+            let users = viewModel.allUsersGrouped[sectionTitle]
             user = users![indexPath.row]
         }
-        profileViewVc.user = user
+        profileViewVc.viewModel.user = user
         self.navigationController?.pushViewController(profileViewVc, animated: true)
-    }
-    
-    func loadUsers(filter: String) {
-        ProgressHUD.show()
-        
-        var query: Query!
-        
-        switch filter {
-        case kCITY:
-            query = reference(.User).whereField(kCITY, isEqualTo: FUser.currentUser()!.city).order(by: kFIRSTNAME, descending: false)
-        case kCOUNTRY:
-            query = reference(.User).whereField(kCOUNTRY, isEqualTo: FUser.currentUser()!.country).order(by: kFIRSTNAME, descending: false)
-        default:
-            query = reference(.User).order(by: kFIRSTNAME, descending: false)
-        }
-        
-        query.getDocuments { (snapShot, error) in
-            
-            self.allUsers = []
-            self.sectionsTitleList = []
-            self.allUsersGrouped = [:]
-            
-            if error != nil {
-                print(error!.localizedDescription)
-                ProgressHUD.dismiss()
-                self.tableView.reloadData()
-                return
-            }
-            
-            guard let snapshot = snapShot else {
-                ProgressHUD.dismiss()
-                return
-            }
-            
-            if !snapshot.isEmpty {
-                for userDictionary in snapshot.documents {
-                    let userDictionary = userDictionary.data() as NSDictionary
-                    let fUser = FUser.init(_dictionary: userDictionary)
-                    
-                    if fUser.objectId != FUser.currentId() {
-                        self.allUsers.append(fUser)
-                    }
-                }
-                
-                self.splitDataIntoSections()
-                self.tableView.reloadData()
-            }
-            self.tableView.reloadData()
-            ProgressHUD.dismiss()
-        }
-    }
-    
-    fileprivate func splitDataIntoSections() {
-        var sectionTitle: String = ""
-        
-        for i in 0..<self.allUsers.count {
-            let currentUser = self.allUsers[i]
-            let firstCharacter = currentUser.firstname.first
-            let firstCharacterString = String(firstCharacter!)
-            
-            if firstCharacterString != sectionTitle {
-                sectionTitle = firstCharacterString
-                
-                self.allUsersGrouped[sectionTitle] = []
-                self.sectionsTitleList.append(sectionTitle)
-            }
-            self.allUsersGrouped[firstCharacterString]?.append(currentUser)
-        }
     }
 }
 
@@ -231,10 +160,9 @@ extension UsersTableViewController: UISearchResultsUpdating {
     }
     
     func filterContentForSearchText(searchText: String, scope: String = "All") {
-        filteredUsers = allUsers.filter({ (user) -> Bool in
+       viewModel.filteredUsers = viewModel.allUsers.filter({ (user) -> Bool in
             return user.firstname.lowercased().contains(searchText.lowercased())
         })
-        
         tableView.reloadData()
     }
 }

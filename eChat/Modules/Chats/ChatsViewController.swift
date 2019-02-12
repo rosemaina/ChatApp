@@ -13,19 +13,17 @@ class ChatsViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    var filteredChats: [NSDictionary] = []
-    var recentChats: [NSDictionary] = []
-    var recentListener: ListenerRegistration!
-    
     let searchController = UISearchController(searchResultsController: nil)
+    
+    var viewModel: ChatsViewModel = ChatsViewModel()
     
     override func viewWillAppear(_ animated: Bool) {
         tableView.tableFooterView = UIView()
-        loadRecentChats()
+        viewModel.loadRecentChats(viewController: self)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        recentListener.remove()
+       viewModel.recentListener.remove()
     }
     
     override func viewDidLoad() {
@@ -49,9 +47,9 @@ extension ChatsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if searchController.isActive && searchController.searchBar.text != "" {
-            return filteredChats.count
+            return viewModel.filteredChats.count
         } else {
-            return recentChats.count
+            return viewModel.recentChats.count
         }
     }
 
@@ -62,9 +60,9 @@ extension ChatsViewController: UITableViewDelegate, UITableViewDataSource {
         var recent: NSDictionary!
         
         if searchController.isActive && searchController.searchBar.text != "" {
-             recent = filteredChats[indexPath.row]
+             recent = viewModel.filteredChats[indexPath.row]
         } else {
-             recent = recentChats[indexPath.row]
+             recent = viewModel.recentChats[indexPath.row]
         }
 
         cell.generateCell(recentChat: recent, indexPath: indexPath)
@@ -81,9 +79,9 @@ extension ChatsViewController: UITableViewDelegate, UITableViewDataSource {
         var tempRecent: NSDictionary!
         
         if searchController.isActive && searchController.searchBar.text != "" {
-            tempRecent = filteredChats[indexPath.row]
+            tempRecent = viewModel.filteredChats[indexPath.row]
         } else {
-            tempRecent = recentChats[indexPath.row]
+            tempRecent = viewModel.recentChats[indexPath.row]
         }
         
         var muteTitle = "Unmute"
@@ -96,7 +94,7 @@ extension ChatsViewController: UITableViewDelegate, UITableViewDataSource {
         
         let deleteAction = UITableViewRowAction(style: .default, title: "Delete") { (action, indexPath) in
             
-            self.recentChats.remove(at: indexPath.row)
+            self.viewModel.recentChats.remove(at: indexPath.row)
             deleteRecentChat(recentChatDictionary: tempRecent)
             self.tableView.reloadData()
         }
@@ -117,20 +115,20 @@ extension ChatsViewController: UITableViewDelegate, UITableViewDataSource {
         var recent: NSDictionary!
         
         if searchController.isActive && searchController.searchBar.text != "" {
-            recent = filteredChats[indexPath.row]
+            recent = viewModel.filteredChats[indexPath.row]
         } else {
-            recent = recentChats[indexPath.row]
+            recent = viewModel.recentChats[indexPath.row]
         }
         
         restartRecentChat(recent: recent)
         
         let chattingVc = ChattingViewController()
         chattingVc.hidesBottomBarWhenPushed = true
-        chattingVc.chatRoomId = recent[kCHATROOMID] as? String
-        chattingVc.memberIds = recent[kMEMBERS] as? [String]
-        chattingVc.membersToPush = recent[kMEMBERSTOPUSH] as? [String]
-        chattingVc.titleName = recent[kWITHUSERFULLNAME] as? String
-        chattingVc.isGroup = (recent[kTYPE] as! String) == kGROUP
+        chattingVc.viewModel.chatRoomId = recent[kCHATROOMID] as? String
+        chattingVc.viewModel.memberIds = recent[kMEMBERS] as? [String]
+        chattingVc.viewModel.membersToPush = recent[kMEMBERSTOPUSH] as? [String]
+        chattingVc.viewModel.titleName = recent[kWITHUSERFULLNAME] as? String
+        chattingVc.viewModel.isGroup = (recent[kTYPE] as! String) == kGROUP
 
         navigationController?.pushViewController(chattingVc, animated: true)
     }
@@ -146,26 +144,6 @@ extension ChatsViewController: RecentChatsTableViewCellDelegate {
     @objc
     func groupButtonTapped() {
         
-    }
-    
-    func loadRecentChats() {
-        recentListener = reference(.Recent).whereField(kUSERID, isEqualTo: FUser.currentId()).addSnapshotListener({ (snapshot, error) in
-            
-            guard let snapshot = snapshot else { return }
-            
-            self.recentChats = []
-            
-            if !snapshot.isEmpty {
-                let sorted = ((dictionaryFromSnapshots(snapshots: snapshot.documents)) as NSArray).sortedArray(using: [NSSortDescriptor(key: kDATE, ascending: false)]) as! [NSDictionary]
-                
-                for recent in sorted {
-                    if recent[kLASTMESSAGE] as! String != "" && recent[kCHATROOMID] != nil && recent[kRECENTID] != nil {
-                        self.recentChats.append(recent)
-                    }
-                }
-                self.tableView.reloadData()
-            }
-        })
     }
     
     func setTableViewHeader() {
@@ -190,33 +168,13 @@ extension ChatsViewController: RecentChatsTableViewCellDelegate {
     
     func didSelectAvatarImage(indexPath: IndexPath) {
         
-        var recentChat: NSDictionary!
-        
         if searchController.isActive && searchController.searchBar.text != "" {
-            recentChat = filteredChats[indexPath.row]
+           viewModel.recentChat = viewModel.filteredChats[indexPath.row]
         } else {
-            recentChat = recentChats[indexPath.row]
+            viewModel.recentChat = viewModel.recentChats[indexPath.row]
         }
         
-        if recentChat[kTYPE] as! String == kPRIVATE {
-            
-            reference(.User).document(recentChat[kWITHUSERUSERID] as! String).getDocument { (snapshot, error) in
-                guard let snapshot = snapshot else { return }
-                
-                if snapshot.exists {
-                    let userDictionary = snapshot.data() as! NSDictionary
-                    let tempUser = FUser(_dictionary: userDictionary)
-                    
-                    self.showUserProfile(user: tempUser)
-                }
-            }
-        }
-    }
-    
-    func showUserProfile(user: FUser) {
-        let profileViewVc = ProfileViewTableViewController.instantiate(fromAppStoryboard: .ProfileView)
-        profileViewVc.user = user
-        self.navigationController?.pushViewController(profileViewVc, animated: true)
+        viewModel.selectAvatar(viewController: self)
     }
 }
 
@@ -226,7 +184,7 @@ extension ChatsViewController: UISearchResultsUpdating {
     }
     
     func filterContentForSearchText(searchText: String, scope: String = "All") {
-        filteredChats = recentChats.filter({ (recentChat) -> Bool in
+        viewModel.filteredChats = viewModel.recentChats.filter({ (recentChat) -> Bool in
             return (recentChat[kWITHUSERFULLNAME] as! String).lowercased().contains(searchText.lowercased())
         })
         
