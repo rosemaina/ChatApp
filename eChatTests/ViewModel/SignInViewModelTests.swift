@@ -14,35 +14,35 @@ import FirebaseFirestore
 
 @testable import eChat
 
-//class SignInViewModelTests: QuickSpec {
-//    override func spec() {
-//        
-//        var signinVM: SignInViewModel!
-//
-//        describe("The SignIn View Model") {
-//
-//            let signInVc = SignInViewController()
-////            let user = FUser
-//
-//            context("is validated with the correct parameters") {
-//                afterEach {
-//                    signinVM = nil
-//                }
-//
-//                beforeEach {
-//                    signinVM = SignInViewModel()
-//                }
-//
-//                it("validates with correct params") {
-//                    
-//
-////                    guard let (email, password) = signinVM.loginUser(email: "rose.maina@mail.com", password: "123456Qa@", viewController: signInVc) else { return }
-////                    
-////                    expect(email).to(equal(email))
-////                    expect(password).to(equal(pass))
-//                }
-//
-//            }
-//        }
-//    }
-//}
+class SignInViewModelTests: QuickSpec {
+    override func spec() {
+        
+        var sut: SignInViewModel!
+        let authManager = MockAuthManager()
+
+        describe("The SignIn View Model") {
+            let signInVc = SignInViewController()
+
+            context("is validated with the correct parameters") {
+                afterEach {
+                    sut = nil
+                }
+
+                beforeEach {
+                    sut = SignInViewModel()
+                }
+
+                it("user signs in with correct params") {
+                    sut.loginUser(email: MockFUser.email, password: MockFUser.password, viewController: signInVc)
+                    
+                    guard
+                        let (email, password) = authManager.signIn_called_withArgs
+                        else { return }
+                    
+                    expect(email).to(equal(MockFUser.email))
+                    expect(password).to(equal(MockFUser.password))
+                }
+            }
+        }
+    }
+}

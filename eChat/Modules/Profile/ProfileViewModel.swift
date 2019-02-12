@@ -6,6 +6,7 @@
 //  Copyright © 2019 Rose Maina. All rights reserved.
 //
 
+import FirebaseAuth
 import Foundation
 import ProgressHUD
 
@@ -21,15 +22,21 @@ class ProfileViewModel {
             else {
                 ProgressHUD.showError("All fields are required!")
                 return }
-        
-        FUser.registerUserWith(email: email!, password: password!, firstName: firstName, lastName: surname) { (error) in
+
+        Auth.auth().createUser(withEmail: email, password: password, completion: { (firuser, error) in
             if error != nil {
                 ProgressHUD.dismiss()
                 ProgressHUD.showError(error?.localizedDescription)
                 return
             }
+            
+            let fUser = FUser(_objectId: firuser!.user.uid, _pushId: "", _createdAt: Date(), _updatedAt: Date(), _email: firuser!.user.email!, _firstname: firstName, _lastname: surname, _avatar: "", _loginMethod: kEMAIL, _phoneNumber: "", _city: "", _country: "")
+            
+            saveUserLocally(fUser: fUser)
+            saveUserToFirestore(fUser: fUser)
+            
             self.registerUser(firstName: firstName, surname: surname, country: country, city: city, phoneNumber: phoneNumber, viewController: viewController)
-        }
+        })
     }
     
     func registerUser(firstName: String, surname: String, country: String, city: String, phoneNumber: String, viewController: ProfileViewController) {

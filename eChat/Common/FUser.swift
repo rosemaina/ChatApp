@@ -177,19 +177,19 @@ class FUser {
   
     //MARK:- Login Function
     
-    class func loginUserWith(email: String, password: String, completion: @escaping (_ error: Error?) -> Void) {
-        Auth.auth().signIn(withEmail: email, password: password, completion: { (firUser, error) in
-
-            if error != nil {
-                completion(error)
-                return
-            } else {
-                //get user from firebase and save locally
-                fetchCurrentUserFromFirestore(userId: firUser!.user.uid)
-                completion(error)
-            }
-        })
-    }
+//    class func loginUserWith(email: String, password: String, completion: @escaping (_ error: Error?) -> Void) {
+//        Auth.auth().signIn(withEmail: email, password: password, completion: { (firUser, error) in
+//
+////            if error != nil {
+////                completion(error)
+////                return
+////            } else {
+////                //get user from firebase and save locally
+////                fetchCurrentUserFromFirestore(userId: firUser!.user.)
+////                completion(error)
+////            }
+//        })
+//    }
     
     //MARK:- Register Function
     
