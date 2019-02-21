@@ -8,19 +8,31 @@
 
 import Foundation
 import ProgressHUD
+import FirebaseAuth
+import FirebaseFirestore
 
+enum Result {
+    case success
+    case fail(message: String)
+}
 class SignInViewModel {
     
-    // MARK: - Private Methods
+    private let auth: AuthManagerProtocol
     
+    init(auth: AuthManagerProtocol = Auth.auth()) {
+        self.auth = auth
+    }
+
     func loginUser(email: String, password: String, viewController: SignInViewController) {
         ProgressHUD.show("Login...")
-        
-        FUser.loginUserWith(email: email, password: password) { (error) in
+
+        auth.signIn(withEmail: email, password: password) { (firebaseUser, error) in
             if error != nil {
                 ProgressHUD.showError(error!.localizedDescription)
                 return
             }
+            // get user from firebase and save locally
+            fetchCurrentUserFromFirestore(userId: firebaseUser!.user.uid)
             self.goToApp(viewController: viewController)
         }
     }

@@ -94,6 +94,7 @@
                         <outlet property="emailTextField" destination="oPS-sT-7py" id="Fj4-AM-sB9"/>
                         <outlet property="passwordTextField" destination="2cW-W0-qdr" id="a0o-lJ-Yp4"/>
                         <outlet property="signInButton" destination="l0z-fQ-d92" id="mPO-fN-Q7J"/>
+                        <outlet property="signUpButton" destination="wQz-B8-baQ" id="5Ha-9H-wTn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HEy-mR-OTW" userLabel="First Responder" sceneMemberID="firstResponder"/>

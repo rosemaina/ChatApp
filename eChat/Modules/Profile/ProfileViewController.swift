@@ -57,7 +57,7 @@ extension ProfileViewController {
     @IBAction func doneButtonPressed(_ sender: Any) {
         ProgressHUD.show("Registering...")
         
-        viewModel.clickdoneButton(firstName: nameTextField.text, surname: surnameTextField.text, country: countryTextField.text, city: cityTextField.text, phoneNumber: phoneTextField.text, viewController: self)
+        viewModel.signUpUser(firstName: nameTextField.text, surname: surnameTextField.text, country: countryTextField.text, city: cityTextField.text, phoneNumber: phoneTextField.text, viewController: self)
     }
 }
 

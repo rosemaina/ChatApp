@@ -17,11 +17,13 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signInButton: UIButton!
+    @IBOutlet weak var signUpButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         viewModel = SignInViewModel()
+    
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         self.view.addGestureRecognizer(tap)
@@ -53,7 +55,6 @@ extension SignInViewController {
     }
 
     @IBAction func clickToSignIn(_ sender: Any) {
-        
         if emailTextField.text != "" && passwordTextField.text != "" {
             viewModel.loginUser(email: emailTextField.text!,
                                 password: passwordTextField.text!,
