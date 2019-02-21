@@ -16,27 +16,44 @@ class ProfileViewModel {
     var email: String!
     var password: String!
     
-    func clickdoneButton(firstName: String?, surname: String?, country: String?, city: String?, phoneNumber: String?, viewController: ProfileViewController) {
+    private let auth: AuthManagerProtocol
+    
+    init(auth: AuthManagerProtocol = Auth.auth()) {
+        self.auth = auth
+    }
+    
+    func signUpUser(firstName: String?, surname: String?, country: String?, city: String?, phoneNumber: String?, viewController: ProfileViewController) {
         
         guard let firstName = firstName, let surname = surname, let country = country, let city = city, let phoneNumber = phoneNumber
             else {
                 ProgressHUD.showError("All fields are required!")
                 return }
-
-        Auth.auth().createUser(withEmail: email, password: password, completion: { (firuser, error) in
+        
+        auth.createUser(withEmail: email, password: password) { (firebaseUser, error) in
             if error != nil {
                 ProgressHUD.dismiss()
                 ProgressHUD.showError(error?.localizedDescription)
                 return
             }
             
-            let fUser = FUser(_objectId: firuser!.user.uid, _pushId: "", _createdAt: Date(), _updatedAt: Date(), _email: firuser!.user.email!, _firstname: firstName, _lastname: surname, _avatar: "", _loginMethod: kEMAIL, _phoneNumber: "", _city: "", _country: "")
+            let fUser = FUser(_objectId: firebaseUser!.user.uid,
+                              _pushId: "",
+                              _createdAt: Date(),
+                              _updatedAt: Date(),
+                              _email: firebaseUser!.user.email!,
+                              _firstname: firstName,
+                              _lastname: surname,
+                              _avatar: "",
+                              _loginMethod: kEMAIL,
+                              _phoneNumber: "",
+                              _city: "",
+                              _country: "")
             
             saveUserLocally(fUser: fUser)
             saveUserToFirestore(fUser: fUser)
             
             self.registerUser(firstName: firstName, surname: surname, country: country, city: city, phoneNumber: phoneNumber, viewController: viewController)
-        })
+        }
     }
     
     func registerUser(firstName: String, surname: String, country: String, city: String, phoneNumber: String, viewController: ProfileViewController) {

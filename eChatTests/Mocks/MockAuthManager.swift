@@ -14,6 +14,7 @@ class MockAuthManager: AuthManagerProtocol {
 
     var signIn_called_withArgs: (String, String)?
     var createUser_called_withArgs: (String, String)?
+    var signOut_called = false
     
     func signIn(withEmail: String, password: String, completion: AuthDataResultCallback?) {
         signIn_called_withArgs = (withEmail, password)
@@ -21,5 +22,9 @@ class MockAuthManager: AuthManagerProtocol {
     
     func createUser(withEmail: String, password: String, completion: AuthDataResultCallback?) {
         createUser_called_withArgs = (withEmail, password)
+    }
+    
+    func signOut() throws {
+        signOut_called = true
     }
 }

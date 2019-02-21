@@ -13,7 +13,7 @@ import Foundation
 protocol AuthManagerProtocol {
     func signIn(withEmail: String, password: String, completion: AuthDataResultCallback?)
     func createUser(withEmail: String, password: String, completion: AuthDataResultCallback?)
+    func signOut() throws
 }
 
 extension Auth: AuthManagerProtocol { }
-

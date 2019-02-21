@@ -174,40 +174,6 @@ class FUser {
         }
         return nil
     }
-  
-    //MARK:- Login Function
-    
-//    class func loginUserWith(email: String, password: String, completion: @escaping (_ error: Error?) -> Void) {
-//        Auth.auth().signIn(withEmail: email, password: password, completion: { (firUser, error) in
-//
-////            if error != nil {
-////                completion(error)
-////                return
-////            } else {
-////                //get user from firebase and save locally
-////                fetchCurrentUserFromFirestore(userId: firUser!.user.)
-////                completion(error)
-////            }
-//        })
-//    }
-    
-    //MARK:- Register Function
-    
-    class func registerUserWith(email: String, password: String, firstName: String, lastName: String, avatar: String = "", completion: @escaping (_ error: Error?) -> Void ) {
-
-        Auth.auth().createUser(withEmail: email, password: password, completion: { (firuser, error) in
-            if error != nil {
-                completion(error)
-                return
-            }
-
-            let fUser = FUser(_objectId: firuser!.user.uid, _pushId: "", _createdAt: Date(), _updatedAt: Date(), _email: firuser!.user.email!, _firstname: firstName, _lastname: lastName, _avatar: avatar, _loginMethod: kEMAIL, _phoneNumber: "", _city: "", _country: "")
-
-            saveUserLocally(fUser: fUser)
-            saveUserToFirestore(fUser: fUser)
-            completion(error)
-        })
-    }
 
     //MARK:- Phone Number Registration Functions
     
@@ -239,26 +205,6 @@ class FUser {
                     completion(error, false)
                 }
             })
-        }
-    }
-    
-    //MARK:- Log Out Function
-    
-    class func logOutCurrentUser(completion: @escaping (_ success: Bool) -> Void) {
-
-        userDefaults.removeObject(forKey: kPUSHID)
-        removeOneSignalId()
-
-        userDefaults.removeObject(forKey: kCURRENTUSER)
-        userDefaults.synchronize()
-
-        do {
-            try Auth.auth().signOut()
-            completion(true)
-
-        } catch let error as NSError {
-            completion(false)
-            print(error.localizedDescription)
         }
     }
     

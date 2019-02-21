@@ -22,6 +22,10 @@
 		305C666C2212BA82008CD41E /* AuthProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305C666B2212BA82008CD41E /* AuthProtocol.swift */; };
 		305C666F2212DD3E008CD41E /* MockFUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305C666E2212DD3E008CD41E /* MockFUser.swift */; };
 		305C66712212FBB4008CD41E /* MockAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305C66702212FBB4008CD41E /* MockAuthManager.swift */; };
+		305C667322136014008CD41E /* ProfileViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305C667222136014008CD41E /* ProfileViewModelTests.swift */; };
+		305C667622136DC5008CD41E /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305C667522136DC5008CD41E /* SettingsViewModel.swift */; };
+		305C667822136F0D008CD41E /* SettingsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305C667722136F0D008CD41E /* SettingsViewModelTests.swift */; };
+		305C667B221378BE008CD41E /* SignInViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305C667A221378BE008CD41E /* SignInViewControllerTests.swift */; };
 		307F722321F9969600A3DA14 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307F722221F9969600A3DA14 /* AppDelegate.swift */; };
 		307F722821F9969600A3DA14 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 307F722621F9969600A3DA14 /* Main.storyboard */; };
 		307F722A21F9969700A3DA14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 307F722921F9969700A3DA14 /* Assets.xcassets */; };
@@ -97,6 +101,10 @@
 		305C666B2212BA82008CD41E /* AuthProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthProtocol.swift; sourceTree = "<group>"; };
 		305C666E2212DD3E008CD41E /* MockFUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFUser.swift; sourceTree = "<group>"; };
 		305C66702212FBB4008CD41E /* MockAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAuthManager.swift; sourceTree = "<group>"; };
+		305C667222136014008CD41E /* ProfileViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModelTests.swift; sourceTree = "<group>"; };
+		305C667522136DC5008CD41E /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		305C667722136F0D008CD41E /* SettingsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModelTests.swift; sourceTree = "<group>"; };
+		305C667A221378BE008CD41E /* SignInViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewControllerTests.swift; sourceTree = "<group>"; };
 		307F721F21F9969600A3DA14 /* eChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		307F722221F9969600A3DA14 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		307F722721F9969600A3DA14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -189,6 +197,8 @@
 			isa = PBXGroup;
 			children = (
 				305C666822115D6A008CD41E /* SignInViewModelTests.swift */,
+				305C667222136014008CD41E /* ProfileViewModelTests.swift */,
+				305C667722136F0D008CD41E /* SettingsViewModelTests.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -208,6 +218,22 @@
 				305C66702212FBB4008CD41E /* MockAuthManager.swift */,
 			);
 			path = Mocks;
+			sourceTree = "<group>";
+		};
+		305C667422136DAE008CD41E /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				305C667522136DC5008CD41E /* SettingsViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		305C667922137890008CD41E /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				305C667A221378BE008CD41E /* SignInViewControllerTests.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		307F721621F9969600A3DA14 = {
@@ -250,6 +276,7 @@
 			isa = PBXGroup;
 			children = (
 				305C666D2212DD2D008CD41E /* Mocks */,
+				305C667922137890008CD41E /* ViewController */,
 				305C666522115CF8008CD41E /* ViewModel */,
 				307F723721F9969700A3DA14 /* eChatTests.swift */,
 				307F723921F9969700A3DA14 /* Info.plist */,
@@ -313,6 +340,7 @@
 		307F725421F9CCB800A3DA14 /* Chats */ = {
 			isa = PBXGroup;
 			children = (
+				305C667422136DAE008CD41E /* ViewModels */,
 				308C354E2202EC9700326F95 /* Chatting */,
 				307F727421F9CDD100A3DA14 /* Chats.storyboard */,
 				308DBE7921FBB6A5003C72E2 /* ChatsViewController.swift */,
@@ -904,6 +932,7 @@
 				307F728021F9CEA900A3DA14 /* SignInViewController.swift in Sources */,
 				308C354B2202E64800326F95 /* ChattingViewController.swift in Sources */,
 				30CBCEE321FB2A4A00E33744 /* SettingsTableViewController.swift in Sources */,
+				305C667622136DC5008CD41E /* SettingsViewModel.swift in Sources */,
 				305C664E220C46D7008CD41E /* PhotoMediaItem.swift in Sources */,
 				305C665C2210AC98008CD41E /* ChatsViewModel.swift in Sources */,
 				307F729321F9E12800A3DA14 /* AudioViewController.swift in Sources */,
@@ -935,7 +964,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				305C666922115D6A008CD41E /* SignInViewModelTests.swift in Sources */,
+				305C667322136014008CD41E /* ProfileViewModelTests.swift in Sources */,
 				307F723821F9969700A3DA14 /* eChatTests.swift in Sources */,
+				305C667B221378BE008CD41E /* SignInViewControllerTests.swift in Sources */,
+				305C667822136F0D008CD41E /* SettingsViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
